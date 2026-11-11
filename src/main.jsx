@@ -84,7 +84,7 @@ function Header() {
   return <header className="site-header" ref={headerRef}>
     <a className="brand" href="#inicio" aria-label="Diego Ariel, volver al inicio"><RollingText>Diego Ariel</RollingText></a>
     <span className="header-note">Diseño que se ve. Webs que se sienten.</span>
-    <a className="withdrawal-link" href="/arrepentimiento/">Botón de arrepentimiento</a>
+    <a className="withdrawal-link" href="/arrepentimiento/"><span>Botón de arrepentimiento</span></a>
     <button className="menu-button" ref={menuRef} aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}><span className={open ? 'menu-mark open' : 'menu-mark'} aria-hidden="true"><i /><i /></span></button>
     <nav className={`main-nav ${open ? 'is-open' : ''}`} id="main-nav" aria-label="Navegación principal" ref={navRef}>
       {[['/proyectos', 'Proyectos'], ['#sobre-mi', 'Sobre mí'], ['#contacto', 'Contacto']].map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}><RollingText>{label}</RollingText></a>)}
