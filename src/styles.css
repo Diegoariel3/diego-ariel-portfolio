@@ -150,3 +150,7 @@
 @media (prefers-reduced-motion: reduce) {
   .contact-title .contact-marquee { width: 100%; }
 }
+
+.site-footer, .index-bottom { flex-wrap: wrap; }
+.legal-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.legal-links a:hover { text-decoration: underline; text-underline-offset: .2em; }

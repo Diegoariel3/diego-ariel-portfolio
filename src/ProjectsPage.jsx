@@ -19,7 +19,11 @@ export default function ProjectsPage() {
         <a href={p.href} target="_blank" rel="noopener noreferrer" aria-label={`Visitar ${p.title} (otra pestaña)`}>↗</a>
       </li>)}</ol>
       <aside className="index-detail" key={project.id}><span className="index-number" aria-hidden="true">{String(active + 1).padStart(2, '0')}</span><div className="index-description"><p className="index-category">{project.category}</p><p>{project.description}</p><a className="index-visit" href={project.href} target="_blank" rel="noopener noreferrer">Visitar sitio ↗</a></div></aside>
-      <div className="index-bottom"><span>Seis proyectos. Seis identidades.</span><span>Diego Ariel © {new Date().getFullYear()}</span></div>
+      <footer className="index-bottom">
+        <span>Seis proyectos. Seis identidades.</span>
+        <span>Diego Ariel © {new Date().getFullYear()}</span>
+        <nav className="legal-links" aria-label="Información legal"><a href="/privacidad/">Privacidad</a><a href="/terminos/">Términos de uso</a></nav>
+      </footer>
     </main>
   </div>;
 }

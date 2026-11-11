@@ -200,7 +200,12 @@ function App() {
         <div className="contact-bottom"><div><a className="email-link" href={`mailto:${email}`}><RollingText>{email}</RollingText><Arrow diagonal /></a><button className="copy-email" onClick={copyEmail} aria-label="Copiar dirección de email"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1" stroke="currentColor" strokeWidth="1.5"/><path d="M16 5V3H3v13h2" stroke="currentColor" strokeWidth="1.5"/></svg><span aria-live="polite">{copied ? 'Copiado' : 'Copiar email'}</span></button></div><a className="text-link" href="tel:1130837555"><RollingText>Llamame: 11 3083-7555</RollingText><Arrow diagonal /></a></div>
       </section>
     </main>
-    <footer className="site-footer section-pad"><span>© {new Date().getFullYear()} Diego Ariel</span><span>Diseñado con intención. Desarrollado con detalle.</span><a href="#inicio" className="text-link"><RollingText>Volver arriba</RollingText><Arrow className="arrow-up" /></a></footer>
+    <footer className="site-footer section-pad">
+      <span>© {new Date().getFullYear()} Diego Ariel</span>
+      <span>Diseñado con intención. Desarrollado con detalle.</span>
+      <nav className="legal-links" aria-label="Información legal"><a href="/privacidad/">Privacidad</a><a href="/terminos/">Términos de uso</a></nav>
+      <a href="#inicio" className="text-link"><RollingText>Volver arriba</RollingText><Arrow className="arrow-up" /></a>
+    </footer>
   </div>;
 }
 
