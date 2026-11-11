@@ -155,17 +155,31 @@
 .legal-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .legal-links a:hover { text-decoration: underline; text-underline-offset: .2em; }
 .withdrawal-link {
-  position: relative;
-  z-index: 4;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
   min-height: 44px;
-  padding: 0 14px;
-  margin-bottom: 18px;
+  padding: 4px 12px;
+  margin-inline-start: auto;
+  margin-inline-end: 14px;
   border: 1px solid var(--accent);
   color: var(--accent);
+  font-size: 13px;
   font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
 }
 .withdrawal-link:hover { color: var(--ink); background: var(--accent); }
-.withdrawal-link .arrow { width: 20px; height: 20px; }
+@media (min-width: 701px) and (max-width: 960px) {
+  .site-header .main-nav > a { padding-inline: 16px; }
+}
+@media (max-width: 700px) {
+  .site-header .brand { padding-inline: clamp(12px, 4vw, 20px); }
+  .site-header .menu-button { margin-left: 0; padding-inline: 12px; gap: 8px; }
+  .withdrawal-link {
+    max-width: 112px;
+    margin-inline-end: 8px;
+    padding-inline: 7px;
+    font-size: 12px;
+  }
+}

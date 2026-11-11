@@ -84,6 +84,7 @@ function Header() {
   return <header className="site-header" ref={headerRef}>
     <a className="brand" href="#inicio" aria-label="Diego Ariel, volver al inicio"><RollingText>Diego Ariel</RollingText></a>
     <span className="header-note">Diseño que se ve. Webs que se sienten.</span>
+    <a className="withdrawal-link" href="/arrepentimiento/">Botón de arrepentimiento</a>
     <button className="menu-button" ref={menuRef} aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>{open ? 'Cerrar' : 'Menú'}<span className={open ? 'menu-mark open' : 'menu-mark'} aria-hidden="true"><i /><i /></span></button>
     <nav className={`main-nav ${open ? 'is-open' : ''}`} id="main-nav" aria-label="Navegación principal" ref={navRef}>
       {[['/proyectos', 'Proyectos'], ['#sobre-mi', 'Sobre mí'], ['#contacto', 'Contacto']].map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}><RollingText>{label}</RollingText></a>)}
@@ -165,7 +166,6 @@ function App() {
       <section className="hero section-pad" id="inicio" aria-labelledby="hero-title">
         <h1 className="hero-title" id="hero-title" aria-label="Diego Ariel"><span aria-hidden="true">{'DIEGO ARIEL'.split('').map((c, i) => <span className={c === ' ' ? 'hero-space' : 'hero-letter'} key={i}>{c === ' ' ? '\u00a0' : c}</span>)}</span></h1>
         <div className="hero-intro"><h2>Diseño & desarrollo web</h2><p>Webs con identidad, pensadas para conectar.</p><a className="text-link accent" href="#contacto"><RollingText>Hablemos</RollingText><Arrow /></a></div>
-        <a className="withdrawal-link" href="/arrepentimiento/">Botón de arrepentimiento <Arrow /></a>
         <figure className="featured">
           <a className="featured-image" href={featuredProject.href} target="_blank" rel="noopener noreferrer" aria-label="Ver sitio de Nuestro Día (se abre en otra pestaña)">
             <img src={featuredProject.preview} alt="Portada de Nuestro Día, con una pareja al atardecer" width="1265" height="712" fetchPriority="high" />
