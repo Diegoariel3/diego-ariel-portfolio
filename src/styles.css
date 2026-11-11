@@ -154,3 +154,18 @@
 .site-footer, .index-bottom { flex-wrap: wrap; }
 .legal-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .legal-links a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.withdrawal-link {
+  position: relative;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 14px;
+  margin-bottom: 18px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+.withdrawal-link:hover { color: var(--ink); background: var(--accent); }
+.withdrawal-link .arrow { width: 20px; height: 20px; }

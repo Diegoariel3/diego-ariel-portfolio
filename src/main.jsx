@@ -165,6 +165,7 @@ function App() {
       <section className="hero section-pad" id="inicio" aria-labelledby="hero-title">
         <h1 className="hero-title" id="hero-title" aria-label="Diego Ariel"><span aria-hidden="true">{'DIEGO ARIEL'.split('').map((c, i) => <span className={c === ' ' ? 'hero-space' : 'hero-letter'} key={i}>{c === ' ' ? '\u00a0' : c}</span>)}</span></h1>
         <div className="hero-intro"><h2>Diseño & desarrollo web</h2><p>Webs con identidad, pensadas para conectar.</p><a className="text-link accent" href="#contacto"><RollingText>Hablemos</RollingText><Arrow /></a></div>
+        <a className="withdrawal-link" href="/arrepentimiento/">Botón de arrepentimiento <Arrow /></a>
         <figure className="featured">
           <a className="featured-image" href={featuredProject.href} target="_blank" rel="noopener noreferrer" aria-label="Ver sitio de Nuestro Día (se abre en otra pestaña)">
             <img src={featuredProject.preview} alt="Portada de Nuestro Día, con una pareja al atardecer" width="1265" height="712" fetchPriority="high" />

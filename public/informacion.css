@@ -27,3 +27,5 @@ footer { margin-top: auto; color: #b5b0a8; }
 .error-page h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: .6rem; }
 .error-page nav { margin-top: 1.5rem; }
 .primary-link { background: #ff6a36; color: #0e0e0e; padding: .55rem 1rem; text-decoration: none; }
+.withdrawal-page h1 { overflow-wrap: anywhere; }
+.withdrawal-alternative { margin-top: 1.5rem; }

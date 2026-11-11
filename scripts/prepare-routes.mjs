@@ -13,6 +13,7 @@ const routes = [
   ['/proyectos/', 'Proyectos — Diego Ariel', 'Explorá los proyectos de diseño y desarrollo web de Diego Ariel.'],
   ['/privacidad/', 'Política de privacidad — Diego Ariel', 'Cómo se usan los datos en este portfolio.'],
   ['/terminos/', 'Términos de uso — Diego Ariel', 'Condiciones de uso del portfolio de Diego Ariel.'],
+  ['/arrepentimiento/', 'Botón de arrepentimiento — Diego Ariel', 'Canal para solicitar la revocación de una contratación a distancia.'],
 ];
 
 const appHtml = await readFile(new URL('index.html', output), 'utf8');

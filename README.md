@@ -19,4 +19,6 @@ Netlify sirve `public/404.html` con estado 404 para las rutas desconocidas. No a
 
 Los textos de privacidad y términos están en `scripts/pages/`. Antes de lanzar el dominio, confirmá el nombre legal y el domicilio del responsable y si corresponde publicar otros datos comerciales. Si aceptás contrataciones a distancia, activás analítica o agregás formularios, revisá los avisos y las obligaciones aplicables a ese flujo.
 
+El botón de arrepentimiento abre un correo a la casilla de contacto. El visitante debe enviarlo. Revisá la casilla y respondé por el mismo medio con un código de identificación o registro dentro de las 24 horas de la solicitud. El sitio no asigna códigos automáticamente.
+
 Los enlaces y el orden de los proyectos se editan en `src/projects.js`. Las capturas se guardan en `public/projects/`.
