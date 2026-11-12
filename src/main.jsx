@@ -189,7 +189,7 @@ function App() {
 
       <section className="about section-pad" id="sobre-mi" aria-labelledby="about-title">
         <div className="about-heading"><h2 className="line-mask" id="about-title"><span className="reveal-line">Detrás de cada web,<br />una forma de mirar.</span></h2><p>Soy Diego Ariel. Diseño y desarrollo páginas web, combinando identidad visual, detalle y código para darle forma a cada proyecto.</p></div>
-        <p className="about-manifesto" aria-label={manifesto}>{manifesto.split(' ').map((word, i) => <React.Fragment key={i}><span className="word" aria-hidden="true">{word}</span>{' '}</React.Fragment>)}</p>
+        <p className="about-manifesto">{manifesto.split(' ').map((word, i) => <React.Fragment key={i}><span className="word">{word}</span>{' '}</React.Fragment>)}</p>
         <section className="approach" id="servicios" aria-labelledby="services-title">
           <h2 className="approach-intro" id="services-title">Servicios de diseño web</h2>
           <div className="service-list">{services.map(service => <div className="service" key={service.slug}>
