@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { projects } from './projects';
 export default function ProjectsPage() {
   const [active, setActive] = useState(0);
   const project = projects[active];
-  useEffect(() => { document.title = 'Proyectos — Diego Ariel'; }, []);
   return <div className="project-index" style={{ '--project-tone': project.tone }}>
     <a className="skip-link" href="#indice">Saltar al índice</a>
     <header className="index-header"><a className="brand" href="/">Diego Ariel</a><a href="/">Volver al inicio ↗</a><a href="/#contacto">Contacto ↗</a></header>

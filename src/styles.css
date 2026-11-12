@@ -192,3 +192,14 @@
   }
   .withdrawal-link > span { padding-inline: 5px; }
 }
+
+.service h3 a:hover, .service-page a:hover { color: var(--accent); }
+.service-page { padding-block: clamp(48px, 8vw, 110px); }
+.service-page h1 { max-width: 18ch; font-family: var(--display); font-size: clamp(42px, 7vw, 104px); line-height: 1; }
+.service-page p { max-width: 64ch; line-height: 1.6; margin-block: 10px 22px; }
+.service-page > p { font-size: clamp(18px, 2vw, 24px); }
+.service-page section, .service-page nav { max-width: 760px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule); }
+.service-page h2 { font-size: clamp(24px, 3vw, 34px); line-height: 1.2; }
+.service-page h3, .service-page li { margin-top: 12px; }
+.service-page ul { padding-left: 1.3em; }
+.service-page article a, .service-page li a { text-decoration: underline; text-underline-offset: 4px; }

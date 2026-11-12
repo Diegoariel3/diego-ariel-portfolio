@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -7,8 +7,10 @@ import 'lenis/dist/lenis.css';
 import { projects } from './projects';
 import './styles.css';
 import ProjectsPage from './ProjectsPage';
+import ServicePage from './ServicePage';
+import { services, servicePath } from './services';
 
-gsap.registerPlugin(ScrollTrigger);
+if (!import.meta.env.SSR) gsap.registerPlugin(ScrollTrigger);
 
 const email = 'diegoariel3@gmail.com';
 
@@ -87,7 +89,7 @@ function Header() {
     <a className="withdrawal-link" href="/arrepentimiento/"><span>Botón de arrepentimiento</span></a>
     <button className="menu-button" ref={menuRef} aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}><span className={open ? 'menu-mark open' : 'menu-mark'} aria-hidden="true"><i /><i /></span></button>
     <nav className={`main-nav ${open ? 'is-open' : ''}`} id="main-nav" aria-label="Navegación principal" ref={navRef}>
-      {[['/proyectos', 'Proyectos'], ['#sobre-mi', 'Sobre mí'], ['#contacto', 'Contacto']].map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}><RollingText>{label}</RollingText></a>)}
+      {[['/proyectos/', 'Proyectos'], ['#servicios', 'Servicios'], ['#sobre-mi', 'Sobre mí'], ['#contacto', 'Contacto']].map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}><RollingText>{label}</RollingText></a>)}
     </nav>
   </header>;
 }
@@ -165,7 +167,7 @@ function App() {
     <main id="contenido">
       <section className="hero section-pad" id="inicio" aria-labelledby="hero-title">
         <h1 className="hero-title" id="hero-title" aria-label="Diego Ariel"><span aria-hidden="true">{'DIEGO ARIEL'.split('').map((c, i) => <span className={c === ' ' ? 'hero-space' : 'hero-letter'} key={i}>{c === ' ' ? '\u00a0' : c}</span>)}</span></h1>
-        <div className="hero-intro"><h2>Diseño & desarrollo web</h2><p>Webs con identidad, pensadas para conectar.</p><a className="text-link accent" href="#contacto"><RollingText>Hablemos</RollingText><Arrow /></a></div>
+        <div className="hero-intro"><h2>Diseño & desarrollo web</h2><p>Páginas web a medida para negocios y emprendimientos de Argentina.</p><a className="text-link accent" href="#contacto"><RollingText>Hablemos</RollingText><Arrow /></a></div>
         <figure className="featured">
           <a className="featured-image" href={featuredProject.href} target="_blank" rel="noopener noreferrer" aria-label="Ver sitio de Nuestro Día (se abre en otra pestaña)">
             <img src={featuredProject.preview} alt="Portada de Nuestro Día, con una pareja al atardecer" width="1265" height="712" fetchPriority="high" />
@@ -188,11 +190,13 @@ function App() {
       <section className="about section-pad" id="sobre-mi" aria-labelledby="about-title">
         <div className="about-heading"><h2 className="line-mask" id="about-title"><span className="reveal-line">Detrás de cada web,<br />una forma de mirar.</span></h2><p>Soy Diego Ariel. Diseño y desarrollo páginas web, combinando identidad visual, detalle y código para darle forma a cada proyecto.</p></div>
         <p className="about-manifesto" aria-label={manifesto}>{manifesto.split(' ').map((word, i) => <React.Fragment key={i}><span className="word" aria-hidden="true">{word}</span>{' '}</React.Fragment>)}</p>
-        <div className="approach"><p className="approach-intro">De la primera idea<br />{' '}al último detalle.</p><div className="service-list">
-          <div className="service"><h3>Diseño web</h3><p>Una dirección visual que conecte con tu marca y ordene lo que querés contar.</p></div>
-          <div className="service"><h3>Desarrollo frontend</h3><p>Una experiencia que funcione con claridad en escritorio, tablet y celular.</p></div>
-          <div className="service"><h3>Movimiento & detalle</h3><p>Transiciones e interacciones que acompañen el contenido y hagan memorable el recorrido.</p></div>
-        </div></div>
+        <section className="approach" id="servicios" aria-labelledby="services-title">
+          <h2 className="approach-intro" id="services-title">Servicios de diseño web</h2>
+          <div className="service-list">{services.map(service => <div className="service" key={service.slug}>
+            <h3><a href={servicePath(service)}>{service.title} ↗</a></h3>
+            <p>{service.description}</p>
+          </div>)}</div>
+        </section>
       </section>
 
       <section className="contact section-pad" id="contacto" aria-labelledby="contact-title">
@@ -210,5 +214,16 @@ function App() {
   </div>;
 }
 
-createRoot(document.getElementById('root')).render(<React.StrictMode>{window.location.pathname.startsWith('/proyectos') ? <ProjectsPage /> : <App />}</React.StrictMode>);
+export function Portfolio({ pathname }) {
+  const route = pathname.replace(/\/$/, '');
+  const service = services.find(({ slug }) => route === `/${slug}`);
+  if (service) return <ServicePage service={service} />;
+  return route === '/proyectos' ? <ProjectsPage /> : <App />;
+}
 
+if (!import.meta.env.SSR) {
+  const root = document.getElementById('root');
+  const page = <React.StrictMode><Portfolio pathname={window.location.pathname} /></React.StrictMode>;
+  if (root.hasChildNodes()) hydrateRoot(root, page);
+  else createRoot(root).render(page);
+}

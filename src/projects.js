@@ -1,7 +1,7 @@
 export const projects = [
 ['nuestro-dia','Nuestro Día','Invitaciones digitales','nuestro-dia-hero.png','Invitaciones digitales para bodas y quince años.','https://invitaciones-x.netlify.app/','#481b33'],
-['sergio','Calzados Sergio','Indumentaria & comercio','sergio.png','Una tienda donde el producto y el movimiento toman el protagonismo.','calzados-sergio','#173443'],
-['donisidro','Don Isidro','Turismo & naturaleza','donisidro.jpg','Un lugar para bajar un cambio. Descubrí el alojamiento y su entorno natural.','donisidro','#293a24'],
+['sergio','Calzados Sergio','Indumentaria & comercio','sergio.png','Catálogo web de calzado e indumentaria deportiva que presenta productos y marcas.','calzados-sergio','#173443'],
+['donisidro','Don Isidro','Turismo & naturaleza','donisidro.jpg','Propuesta de sitio para Cabañas Don Isidro, con una presentación visual del alojamiento y su entorno.','donisidro','#293a24'],
 ['espiritu','Espíritu Mágico','Bienestar & productos naturales','espiritu.jpg','La magia de las hierbas, en tu ritual diario. Productos hechos con intención.','espiritumagico','#493420'],
 ['ilnonno','Il Nonno','Barbería & estilo','ilnonno.webp','Tu corte. Tu ritual. La identidad de una barbería llevada a la web.','ilnonno','#23372d'],
 ['emkine','EM Kine','Salud & bienestar','emkine.webp','Un espacio digital para conocer los servicios y facilitar la consulta de turnos.','https://emkine.com.ar/','#3c3030'],
